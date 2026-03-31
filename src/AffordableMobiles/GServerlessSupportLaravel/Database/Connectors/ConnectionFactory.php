@@ -128,12 +128,14 @@ class ConnectionFactory extends BaseConnectionFactory
                     $runtimeConfig = $this->resolveRuntimeConfig($config);
 
                     return $this->createConnector($runtimeConfig)->connect($runtimeConfig);
-                } catch (PDOException $e) {
+                } catch (\PDOException $e) {
                     continue;
                 }
             }
 
-            throw $e;
+            if (isset($e)) {
+                throw $e;
+            }
         };
     }
 
