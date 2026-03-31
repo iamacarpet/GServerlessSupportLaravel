@@ -18,6 +18,7 @@ $config
     ->setRiskyAllowed(true)
     ->setRules([
         '@PHP84Migration'        => true,
+        '@PHP85Migration'        => true,
         '@PHP80Migration:risky'  => true,
         'heredoc_indentation'    => false,
         '@PhpCsFixer'            => true,
