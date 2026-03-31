@@ -17,7 +17,7 @@ $config
     ->setParallelConfig(ParallelConfigFactory::detect())
     ->setRiskyAllowed(true)
     ->setRules([
-        '@PHP83Migration'        => true,
+        '@PHP84Migration'        => true,
         '@PHP80Migration:risky'  => true,
         'heredoc_indentation'    => false,
         '@PhpCsFixer'            => true,
