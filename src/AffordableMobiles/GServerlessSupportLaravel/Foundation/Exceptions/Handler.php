@@ -6,9 +6,7 @@ namespace AffordableMobiles\GServerlessSupportLaravel\Foundation\Exceptions;
 
 use AffordableMobiles\GServerlessSupportLaravel\Integration\ErrorReporting\Report;
 use Illuminate\Foundation\Exceptions\Handler as LaravelHandler;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Reflector;
-use Psr\Log\LogLevel;
 
 class Handler extends LaravelHandler
 {
@@ -38,11 +36,7 @@ class Handler extends LaravelHandler
             }
         }
 
-        $level = Arr::first(
-            $this->levels,
-            static fn ($level, $type) => $e instanceof $type,
-            LogLevel::ERROR
-        );
+        $level = $this->mapLogLevel($e);
 
         $context = $this->buildExceptionContext($e);
 

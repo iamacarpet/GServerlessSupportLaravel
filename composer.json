@@ -17,7 +17,7 @@
         }
     ],
     "require": {
-        "php": "^8.3",
+        "php": "~8.5.0",
         "affordablemobiles/eloquent-datastore": "~12",
         "affordablemobiles/eloquent-sqlcommenter": "~12",
         "open-telemetry/sdk": "~1",
@@ -26,7 +26,7 @@
         "google/cloud": ">=0.277.0 <1.0.0",
         "google/auth": ">=1.46.0",
         "kelvinmo/simplejwt": "^1.0.1",
-        "laravel/framework": "~12"
+        "laravel/framework": "~13.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^3.70"

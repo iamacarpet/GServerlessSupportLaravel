@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace AffordableMobiles\GServerlessSupportLaravel\View\Engines;
 
 use AffordableMobiles\GServerlessSupportLaravel\View\Compilers\FakeCompiler;
+use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Str;
 use Illuminate\View\Compilers\CompilerInterface;
 use Illuminate\View\Engines\CompilerEngine as LaravelCompilerEngine;
@@ -14,9 +15,9 @@ class CompilerEngine extends LaravelCompilerEngine
     /**
      * Create a new compiler engine instance.
      */
-    public function __construct(CompilerInterface $compiler) // Ensure constructor matches parent
+    public function __construct(CompilerInterface $compiler, ?Filesystem $files = null)
     {
-        parent::__construct($compiler);
+        parent::__construct($compiler, $files);
     }
 
     /**

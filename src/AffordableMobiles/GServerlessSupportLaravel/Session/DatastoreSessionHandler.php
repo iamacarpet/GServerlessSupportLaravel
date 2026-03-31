@@ -12,7 +12,7 @@ use Google\Cloud\Datastore\Key;
 
 class DatastoreSessionHandler implements \SessionHandlerInterface
 {
-    /** @const string[] */
+    /** @var array<string> */
     private const excludeFromIndexes = [
         'data',
         'expireAt',

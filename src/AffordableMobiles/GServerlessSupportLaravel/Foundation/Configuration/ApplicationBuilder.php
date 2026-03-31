@@ -15,6 +15,8 @@ class ApplicationBuilder extends LaravelApplicationBuilder
     /**
      * Register and configure the application's exception handler.
      *
+     * @param null|callable(Exceptions) $using
+     *
      * @return $this
      */
     public function withExceptions(?callable $using = null)
@@ -24,12 +26,12 @@ class ApplicationBuilder extends LaravelApplicationBuilder
             Handler::class,
         );
 
-        $using ??= static fn () => true;
-
-        $this->app->afterResolving(
-            Handler::class,
-            static fn ($handler) => $using(new Exceptions($handler)),
-        );
+        if (null !== $using) {
+            $this->app->afterResolving(
+                Handler::class,
+                static fn ($handler) => $using(new Exceptions($handler)),
+            );
+        }
 
         return $this;
     }
